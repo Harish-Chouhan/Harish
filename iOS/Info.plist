@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleName</key>
-	<string>HollywoodBowl</string>
+	<string>LA Phil</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.laphil.HollywoodBowl</string>
+	<string>com.laphil.LAPhil</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>

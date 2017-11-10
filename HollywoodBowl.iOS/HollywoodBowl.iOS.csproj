@@ -144,10 +144,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HollywoodBowl\HollywoodBowl.csproj">
-      <Project>{CA558D94-9B66-4884-8B80-CCAF7ADBF778}</Project>
-      <Name>HollywoodBowl</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LAPhil.Logging\LAPhil.Logging.csproj">
       <Project>{8C1549ED-15FB-4494-8316-6DEEFFCA79E3}</Project>
       <Name>LAPhil.Logging</Name>
