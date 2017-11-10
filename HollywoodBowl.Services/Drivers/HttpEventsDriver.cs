@@ -21,21 +21,18 @@ namespace HollywoodBowl.Services
             Log.Debug("Initialized Http Events Service Driver");
         }
 
-        public async Task<List<Event>> RangeAsync(DateTime start, DateTime end)
+        public IObservable<List<Event>> InRange(DateTime start, DateTime end)
         {
-            await Task.Delay(60);
-            return new List<Event>();
+            return Http
+                .WithCache(key: "events")
+                .Get<List<Event>>(url: "https://httpbin.org");
         }
 
-        public async Task<List<Event>> SeasonAsync(int season)
+        public IObservable<List<Event>> Season(int season)
         {
-            await Task.Delay(60);
-            return new List<Event>();
-        }
-
-        public IObservable<HttpBinGet> RangeObservable(DateTime start, DateTime end)
-        {
-            throw new NotImplementedException();
+            return Http
+                .WithCache(key: "events")
+                .Get<List<Event>>(url: "https://httpbin.org");
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using LAPhil.Application;
 using LAPhil.Logging;
 
@@ -17,19 +16,14 @@ namespace HollywoodBowl.Services
             Driver = driver;
         }
 
-        public async Task<List<Event>> RangeAsync(DateTime start, DateTime end)
+        public IObservable<List<Event>> InRange(DateTime start, DateTime end)
         {
-            return await Driver.RangeAsync(start, end);
+            return Driver.InRange(start, end);
         }
 
-        public IObservable<HttpBinGet>RangeObservable(DateTime start, DateTime end)
+        public IObservable<List<Event>> Season(int season)
         {
-            return Driver.RangeObservable(start, end);
-        }
-
-        public async Task<List<Event>> SeasonAsync(int season)
-        {
-            return await Driver.SeasonAsync(season);
+            return Driver.Season(season);
         }
     }
 }

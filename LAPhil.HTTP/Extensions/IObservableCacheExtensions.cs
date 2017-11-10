@@ -7,9 +7,9 @@ using LAPhil.Cache;
 using LAPhil.Application;
 
 
-namespace HollywoodBowl.Services
+namespace LAPhil.HTTP
 {
-    public static class IObservableExtensions
+    public static class IObservableCacheExtensions
     {
         public static IObservable<T> WithCache<T>(this IObservable<T> source, string key)
         {
@@ -25,11 +25,11 @@ namespace HollywoodBowl.Services
 
                     source.Do(value =>
                     {
-                        #pragma warning disable 4014
+#pragma warning disable 4014
                         if (EqualityComparer<T>.Default.Equals(value, default(T)) == false)
                             cacheService.SetAsync(key, value);
-                        #pragma warning restore 4014
-                        
+#pragma warning restore 4014
+
                     }).Subscribe(value =>
                     {
                         if (EqualityComparer<T>.Default.Equals(value, default(T)) == false)

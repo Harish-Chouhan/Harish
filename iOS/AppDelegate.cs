@@ -3,6 +3,7 @@ using UIKit;
 using System;
 using System.Threading.Tasks;
 using System.IO;
+using System.Reactive.Linq;
 using LAPhil.Application;
 using LAPhil.Logging;
 using LAPhil.Connectivity;
@@ -53,13 +54,11 @@ namespace HollywoodBowl.iOS
             Task.Run(() => {
                 var eventsService = ServiceContainer.Resolve<EventsService>();
 
-                eventsService.RangeObservable(DateTime.Today, DateTime.Today)
+                eventsService.InRange(DateTime.Today, DateTime.Today)
                  .Subscribe((value) =>
                  {
                      var foo = 1;
                  });
-                //var result = await eventsService.RangeAsync(DateTime.Today, DateTime.Today);
-                //var foo = 1;
             });
             return true;
         }
