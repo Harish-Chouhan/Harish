@@ -3,26 +3,36 @@ using System;
 using System.IO;
 
 
+
 namespace HollywoodBowl.iOS.Services
 {
-    public static class Path
+    public static class PathService
     {
-        
         public static string CachePath
         {
             get
             {
-                
                 NSError err;
 
                 var fileManager = new NSFileManager();
                 var bundle = NSBundle.MainBundle.BundleIdentifier;
                 var url = fileManager.GetUrl(NSSearchPathDirectory.ApplicationSupportDirectory, NSSearchPathDomain.All, null, true, out err);
-                var path = $"{url.RelativePath}/{bundle}/caches";
+                var path = Path.Combine(url.RelativePath, bundle, "caches");
 
-                fileManager.createDirectory(path, withIntermediateDirectories: true, attributes: null);
                 return path;
             }
-        }   
+        } 
+
+        public static void CreatePath(string path)
+        {
+            var fileManager = new NSFileManager();
+            try
+            {
+                fileManager.CreateDirectory(path, createIntermediates: true, attributes: null);
+            } catch(Exception e)
+            {
+                // noop
+            }
+        }
     }
 }

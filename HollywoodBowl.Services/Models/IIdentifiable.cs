@@ -1,7 +1,8 @@
 ﻿using System;
-namespace HollywoodBowl.Services.Models
+namespace HollywoodBowl.Services
 {
     public interface IIdentifiable
     {
+        int Id { get; }
     }
 }

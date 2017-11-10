@@ -12,12 +12,6 @@ using LAPhil.Application;
 
 namespace HollywoodBowl.Services
 {
-
-    public class ObservableCachedHttpService
-    {
-            
-    }
-
     public class CachedHttpService
     {
         static HttpService HttpService = ServiceContainer.Resolve<HttpService>();
@@ -26,11 +20,11 @@ namespace HollywoodBowl.Services
 
         public CachedHttpService(string key)
         {
-            key = Key;
+            Key = key;
         }
 
 
-        public IObservable<T> GetObservableAsync<T>(string url, Dictionary<string, string> parameters = null, Dictionary<string, string> headers = null)
+        public IObservable<T> GetObservable<T>(string url, Dictionary<string, string> parameters = null, Dictionary<string, string> headers = null)
         {
             return Observable.FromAsync(async () =>
             {
@@ -44,7 +38,7 @@ namespace HollywoodBowl.Services
             .WithCache(Key);
         }
 
-        public IObservable<T> PostObservableAsync<T>(string url, Dictionary<string, string> data = null, IDictionary json = null, Dictionary<string, string> headers = null)
+        public IObservable<T> PostObservable<T>(string url, Dictionary<string, string> data = null, IDictionary json = null, Dictionary<string, string> headers = null)
         {
             return Observable.FromAsync(async () =>
             {
@@ -58,7 +52,7 @@ namespace HollywoodBowl.Services
             .WithCache(Key);
         }
 
-        public IObservable<T> PutObservableAsync<T>(string url, Dictionary<string, string> data = null, IDictionary json = null, Dictionary<string, string> headers = null)
+        public IObservable<T> PutObservable<T>(string url, Dictionary<string, string> data = null, IDictionary json = null, Dictionary<string, string> headers = null)
         {
             return Observable.FromAsync(async () =>
             {
@@ -143,7 +137,7 @@ namespace HollywoodBowl.Services
         }
     }
 
-    public static class HttpServiceExtensions
+    public static class HttpServiceCacheExtensions
     {
         public static CachedHttpService WithCache(this HttpService source, string key)
         {

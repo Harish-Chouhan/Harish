@@ -1,10 +1,12 @@
 ﻿using System;
-namespace HollywoodBowl.Services.Drivers
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace HollywoodBowl.Services
 {
-    public class IFavoritesDriver
+    public interface IFavoritesDriver
     {
-        public IFavoritesDriver()
-        {
-        }
+        Task<List<Favorite<T>>> Favorites<T>()
+            where T: IIdentifiable;  
     }
 }

@@ -1,5 +1,17 @@
 ﻿using Foundation;
 using UIKit;
+using System;
+using System.Threading.Tasks;
+using System.IO;
+using LAPhil.Application;
+using LAPhil.Logging;
+using LAPhil.Connectivity;
+using LAPhil.HTTP;
+using LAPhil.Cache;
+using LAPhil.Cache.Realm;
+using HollywoodBowl.Services;
+using HollywoodBowl.iOS.Services;
+
 
 namespace HollywoodBowl.iOS
 {
@@ -10,6 +22,7 @@ namespace HollywoodBowl.iOS
     {
         // class-level declarations
 
+
         public override UIWindow Window
         {
             get;
@@ -18,9 +31,36 @@ namespace HollywoodBowl.iOS
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            // Override point for customization after application launch.
-            // If not required for your application you can safely delete this method
+            // Logging service must be initialized first and MUST NOT be in a lambda
+            // create the concrete instance.
 
+            var cacheStoragePath = PathService.CachePath;
+            var cacheFilename = Path.Combine(cacheStoragePath, "cache.realm");
+            PathService.CreatePath(cacheStoragePath);
+
+            ServiceContainer.Register(new LoggingService(new Services.PlatfromLogger()));
+            ServiceContainer.Register(() => new ConnectivityService());
+            ServiceContainer.Register(() => new HttpService(timeout: 6.05));
+            ServiceContainer.Register(() => new EventsService(new MockEventsDriver()));
+            ServiceContainer.Register(() => new SeasonsService(new MockSeasonsDriver()));
+            ServiceContainer.Register(() => new FavoritesService(new MockFavoritesDriver()));
+            ServiceContainer.Register(() => new CacheService(new RealmDriver(
+                path: cacheFilename, 
+                serializer: new JsonSerializerService()
+            )));
+
+
+            Task.Run(() => {
+                var eventsService = ServiceContainer.Resolve<EventsService>();
+
+                eventsService.RangeObservable(DateTime.Today, DateTime.Today)
+                 .Subscribe((value) =>
+                 {
+                     var foo = 1;
+                 });
+                //var result = await eventsService.RangeAsync(DateTime.Today, DateTime.Today);
+                //var foo = 1;
+            });
             return true;
         }
 
@@ -34,6 +74,7 @@ namespace HollywoodBowl.iOS
 
         public override void DidEnterBackground(UIApplication application)
         {
+            
             // Use this method to release shared resources, save user data, invalidate timers and store the application state.
             // If your application supports background exection this method is called instead of WillTerminate when the user quits.
         }
@@ -52,6 +93,8 @@ namespace HollywoodBowl.iOS
 
         public override void WillTerminate(UIApplication application)
         {
+            ServiceContainer.Resolve<LoggingService>().Shutdown();
+            ServiceContainer.Resolve<CacheService>().Shutdown();
             // Called when the application is about to terminate. Save data, if needed. See also DidEnterBackground.
         }
     }

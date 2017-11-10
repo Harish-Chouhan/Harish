@@ -10,21 +10,26 @@ namespace HollywoodBowl.Services
     public class EventsService
     {
         Logger<EventsService> Log = ServiceContainer.Resolve<LoggingService>().GetLogger<EventsService>();
-        readonly IEventDriver Driver;
+        public readonly IEventsDriver Driver;
 
-        public EventsService(IEventDriver driver)
+        public EventsService(IEventsDriver driver)
         {
             Driver = driver;
         }
 
-        public Task RangeAsync(DateTime start, DateTime end)
+        public async Task<List<Event>> RangeAsync(DateTime start, DateTime end)
         {
-            return Driver.RangeAsync(start, end);
+            return await Driver.RangeAsync(start, end);
         }
 
-        public Task SeasonAsync(int season)
+        public IObservable<HttpBinGet>RangeObservable(DateTime start, DateTime end)
         {
-            return Driver.SeasonAsync(season);
+            return Driver.RangeObservable(start, end);
+        }
+
+        public async Task<List<Event>> SeasonAsync(int season)
+        {
+            return await Driver.SeasonAsync(season);
         }
     }
 }

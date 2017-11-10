@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 
 
-namespace LAPhil.Application.Services
+namespace LAPhil.Application
 {
     public static class ServiceContainer
     {

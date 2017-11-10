@@ -1,6 +1,6 @@
 ﻿using System;
 using Serilog;
-using LAPhil.Logging.Services;
+using LAPhil.Logging;
 
 
 namespace HollywoodBowl.iOS.Services
@@ -9,7 +9,9 @@ namespace HollywoodBowl.iOS.Services
     {
         public LoggerConfiguration Configure(LoggerConfiguration config)
         {
-            return config.WriteTo.NSLog();
+            return config.WriteTo.NSLog(
+                outputTemplate: "[{Level}] [{SourceContext}] {Message:l}{NewLine:l}{Exception:l}"
+            );
         }
     }
 }

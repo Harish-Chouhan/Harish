@@ -23,12 +23,19 @@ namespace HollywoodBowl.Services
 
         public async Task<List<Event>> RangeAsync(DateTime start, DateTime end)
         {
+            await Task.Delay(60);
             return new List<Event>();
         }
 
         public async Task<List<Event>> SeasonAsync(int season)
         {
+            await Task.Delay(60);
             return new List<Event>();
+        }
+
+        public IObservable<HttpBinGet> RangeObservable(DateTime start, DateTime end)
+        {
+            throw new NotImplementedException();
         }
     }
 }

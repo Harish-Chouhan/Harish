@@ -1,10 +1,15 @@
 ﻿using System;
-namespace HollywoodBowl.Services.Models
+
+namespace HollywoodBowl.Services
 {
-    public class Favorite
+    public class Favorite<T> 
+        where T: IIdentifiable
     {
-        public Favorite()
+        T Value { get; set; }
+
+        public Favorite(T value)
         {
+            Value = value;
         }
     }
 }

@@ -9,19 +9,19 @@ using LAPhil.Logging;
 namespace HollywoodBowl.Services
 {
     
-    public class SeasonService
+    public class SeasonsService
     {
-        Logger<SeasonService> Log = ServiceContainer.Resolve<LoggingService>().GetLogger<SeasonService>();
-        readonly ISeasonDriver Driver;
+        Logger<SeasonsService> Log = ServiceContainer.Resolve<LoggingService>().GetLogger<SeasonsService>();
+        public readonly ISeasonsDriver Driver;
 
-        public SeasonService(ISeasonDriver driver)
+        public SeasonsService(ISeasonsDriver driver)
         {
             Driver = driver;
         }
 
-        public Task<List<Season>> SeasonsAsync()
+        public async Task<List<Season>> SeasonsAsync()
         {
-            return Driver.SeasonsAsync();
+            return await Driver.SeasonsAsync();
         }
     }
 }

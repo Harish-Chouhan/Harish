@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace HollywoodBowl.Services
 {
-    public interface ISeasonDriver
+    public interface ISeasonsDriver
     {
         Task<List<Season>> SeasonsAsync();
     }

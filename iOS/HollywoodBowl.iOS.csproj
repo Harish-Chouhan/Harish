@@ -9,6 +9,7 @@
     <RootNamespace>HollywoodBowl.iOS</RootNamespace>
     <AssemblyName>HollywoodBowl.iOS</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,7 +26,7 @@
     <IOSDebuggerPort>54731</IOSDebuggerPort>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
-    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
@@ -73,7 +74,7 @@
     <IOSDebuggerPort>59807</IOSDebuggerPort>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>ARM64</MtouchArch>
-    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
@@ -81,11 +82,95 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Serilog">
+      <HintPath>..\packages\Serilog.2.5.0\lib\netstandard1.3\Serilog.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Xamarin.iOS">
+      <HintPath>..\packages\Serilog.Sinks.Xamarin.0.1.29\lib\Xamarin.iOS10\Serilog.Sinks.Xamarin.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Polly">
+      <HintPath>..\packages\Polly.5.5.0\lib\netstandard1.1\Polly.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Splat">
+      <HintPath>..\packages\Splat.2.0.0\lib\Xamarin.iOS10\Splat.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\packages\System.Reactive.Interfaces.3.1.1\lib\netstandard1.0\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\packages\System.Reactive.Core.3.1.1\lib\netstandard1.3\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\packages\System.Reactive.Linq.3.1.1\lib\netstandard1.3\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices">
+      <HintPath>..\packages\System.Reactive.PlatformServices.3.1.1\lib\netstandard1.3\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Realm.DataBinding">
+      <HintPath>..\packages\Realm.DataBinding.1.2.0\lib\Xamarin.iOS10\Realm.DataBinding.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq">
+      <HintPath>..\packages\Remotion.Linq.2.1.2\lib\portable-net45+win+wpa81+wp80\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.3.0\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Realm">
+      <HintPath>..\packages\Realm.Database.2.0.0\lib\netstandard1.4\Realm.dll</HintPath>
+    </Reference>
+    <Reference Include="Realm.Sync">
+      <HintPath>..\packages\Realm.2.0.0\lib\netstandard1.4\Realm.Sync.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HollywoodBowl\HollywoodBowl.csproj">
       <Project>{CA558D94-9B66-4884-8B80-CCAF7ADBF778}</Project>
       <Name>HollywoodBowl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LAPhil.Logging\LAPhil.Logging.csproj">
+      <Project>{8C1549ED-15FB-4494-8316-6DEEFFCA79E3}</Project>
+      <Name>LAPhil.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LAPhil.Application\LAPhil.Application.csproj">
+      <Project>{72A223AF-26C7-4633-AABD-027F2AD121B4}</Project>
+      <Name>LAPhil.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LAPhil.HTTP\LAPhil.HTTP.csproj">
+      <Project>{C7F2E777-3A10-47CD-8396-6F196A570763}</Project>
+      <Name>LAPhil.HTTP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LAPhil.Connectivity\LAPhil.Connectivity.csproj">
+      <Project>{703AA085-7F78-4276-9611-5C28A35374BC}</Project>
+      <Name>LAPhil.Connectivity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HollywoodBowl.Services\HollywoodBowl.Services.csproj">
+      <Project>{AA3854BC-6D8B-44B1-9A0F-02FDBD362D08}</Project>
+      <Name>HollywoodBowl.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LAPhil.Cache\LAPhil.Cache.csproj">
+      <Project>{20D8D5FC-32DC-433C-9906-75EBEB1ABF60}</Project>
+      <Name>LAPhil.Cache</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -102,6 +188,8 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
+    <None Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -110,6 +198,13 @@
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\PlatfromLogger.cs" />
+    <Compile Include="Services\PathService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Import Project="..\packages\Fody.2.1.2\build\netstandard1.0\Fody.targets" Condition="Exists('..\packages\Fody.2.1.2\build\netstandard1.0\Fody.targets')" />
+  <Import Project="..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Import Project="..\packages\Realm.Database.2.0.0\build\Realm.Database.targets" Condition="Exists('..\packages\Realm.Database.2.0.0\build\Realm.Database.targets')" />
+  <Import Project="..\packages\Realm.2.0.0\build\Realm.targets" Condition="Exists('..\packages\Realm.2.0.0\build\Realm.targets')" />
 </Project>
