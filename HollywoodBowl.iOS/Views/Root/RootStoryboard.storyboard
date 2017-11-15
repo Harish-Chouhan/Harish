@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="202">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root Controller-->
+        <scene sceneID="201">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="202" customClass="RootController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="203">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m2b-IS-D3m">
+                                <rect key="frame" x="0.0" y="44" width="375" height="684"/>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GD5-on-uwQ">
+                                <rect key="frame" x="0.0" y="728" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.2092158559612729" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6iV-sv-d3r"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="muv-Cc-sp4" kind="embed" identifier="TabBarController" id="kQy-Ev-MuB"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.8062290054934802" green="1" blue="0.84820498978375425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Gaa-kR-kK2" firstAttribute="bottom" secondItem="GD5-on-uwQ" secondAttribute="bottom" id="3wO-Vi-5yK"/>
+                            <constraint firstItem="GD5-on-uwQ" firstAttribute="trailing" secondItem="Gaa-kR-kK2" secondAttribute="trailing" id="59c-As-ztz"/>
+                            <constraint firstItem="m2b-IS-D3m" firstAttribute="top" secondItem="Gaa-kR-kK2" secondAttribute="top" id="Dmf-7j-wbG"/>
+                            <constraint firstItem="GD5-on-uwQ" firstAttribute="leading" secondItem="Gaa-kR-kK2" secondAttribute="leading" id="JfE-Ir-6jc"/>
+                            <constraint firstItem="Gaa-kR-kK2" firstAttribute="trailing" secondItem="m2b-IS-D3m" secondAttribute="trailing" id="MHP-08-IwH"/>
+                            <constraint firstItem="m2b-IS-D3m" firstAttribute="leading" secondItem="Gaa-kR-kK2" secondAttribute="leading" id="WjV-ab-mZv"/>
+                            <constraint firstItem="m2b-IS-D3m" firstAttribute="bottom" secondItem="GD5-on-uwQ" secondAttribute="top" id="pOK-8s-smL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Gaa-kR-kK2"/>
+                    </view>
+                    <connections>
+                        <outlet property="ContainerView" destination="m2b-IS-D3m" id="HSR-oR-NHg"/>
+                        <outlet property="TabBarContainer" destination="GD5-on-uwQ" id="name-outlet-GD5-on-uwQ"/>
+                        <segue destination="0R6-wm-1si" kind="custom" identifier="Home" customClass="TabBarSegue" id="G2D-Kf-RT8"/>
+                        <segue destination="Oxj-ez-9lk" kind="custom" identifier="MyTickets" customClass="TabBarSegue" id="z6X-L3-v9O"/>
+                        <segue destination="Bsb-N2-B7m" kind="custom" identifier="GettingHere" customClass="TabBarSegue" id="bmv-Dr-yph"/>
+                        <segue destination="dTS-4K-v8E" kind="custom" identifier="WhenHere" customClass="TabBarSegue" id="Q72-Qy-m03"/>
+                        <segue destination="tr4-Nt-aJ6" kind="custom" identifier="More" customClass="TabBarSegue" id="MHc-4B-ksy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="204" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="181.59999999999999" y="79.064039408867004"/>
+        </scene>
+        <!--HomeStoryboard-->
+        <scene sceneID="8jI-T2-kM9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeStoryboard" id="0R6-wm-1si" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ky-ib-GH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-382" y="519"/>
+        </scene>
+        <!--MyTicketsStoryboard-->
+        <scene sceneID="glI-v2-Fcn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyTicketsStoryboard" id="Oxj-ez-9lk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vm6-u4-sHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-128" y="519"/>
+        </scene>
+        <!--GettingHereStoryboard-->
+        <scene sceneID="F7z-QA-LwK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GettingHereStoryboard" id="Bsb-N2-B7m" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y1f-1F-WCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="167" y="519"/>
+        </scene>
+        <!--WhenHereStoryboard-->
+        <scene sceneID="S1M-L7-Byn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WhenHereStoryboard" id="dTS-4K-v8E" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZHN-fP-og9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="456" y="519"/>
+        </scene>
+        <!--MoreStoryboard-->
+        <scene sceneID="ICm-fQ-WDQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MoreStoryboard" id="tr4-Nt-aJ6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PaR-2x-VGS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="706" y="519"/>
+        </scene>
+        <!--TabBarController-->
+        <scene sceneID="wuR-ek-S1z">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UIKit" referencedIdentifier="TabBarController" id="muv-Cc-sp4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pd6-Lq-FqB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="702" y="223"/>
+        </scene>
+    </scenes>
+</document>

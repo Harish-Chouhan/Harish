@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Reactive.Linq;
-using Akavache;
 
 
 namespace LAPhil.Cache

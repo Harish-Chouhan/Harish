@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
@@ -9,7 +8,7 @@
     <RootNamespace>HollywoodBowl.iOS</RootNamespace>
     <AssemblyName>HollywoodBowl.iOS</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -168,6 +167,10 @@
       <Project>{20D8D5FC-32DC-433C-9906-75EBEB1ABF60}</Project>
       <Name>LAPhil.Cache</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LAPhil.Analytics\LAPhil.Analytics.csproj">
+      <Project>{AD3C6512-53AF-4BF6-B12E-2B7D9CFC7046}</Project>
+      <Name>LAPhil.Analytics</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -176,10 +179,25 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Services\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Components\" />
+    <Folder Include="Views\Home\" />
+    <Folder Include="Views\MyTickets\" />
+    <Folder Include="Views\GettingHere\" />
+    <Folder Include="Views\WhenHere\" />
+    <Folder Include="Views\More\" />
+    <Folder Include="Views\Root\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="Views\Root\RootStoryboard.storyboard" />
+    <InterfaceDefinition Include="Views\Components\UIKit.storyboard" />
+    <InterfaceDefinition Include="Views\Home\HomeStoryboard.storyboard" />
+    <InterfaceDefinition Include="Views\GettingHere\GettingHereStoryboard.storyboard" />
+    <InterfaceDefinition Include="Views\More\MoreStoryboard.storyboard" />
+    <InterfaceDefinition Include="Views\MyTickets\MyTicketsStoryboard.storyboard" />
+    <InterfaceDefinition Include="Views\WhenHere\WhenHereStoryboard.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -196,6 +214,22 @@
     </Compile>
     <Compile Include="Services\PlatfromLogger.cs" />
     <Compile Include="Services\PathService.cs" />
+    <Compile Include="Views\Root\RootController.cs" />
+    <Compile Include="Views\Components\TabBarController.cs" />
+    <Compile Include="Views\Components\TabBarButton.cs" />
+    <Compile Include="Views\Root\RootController.designer.cs">
+      <DependentUpon>RootController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\HomeController.cs" />
+    <Compile Include="Views\Home\HomeController.designer.cs">
+      <DependentUpon>HomeController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\TabBarSegue.cs" />
+    <Compile Include="Views\Components\IContainerController.cs" />
+    <Compile Include="Views\GettingHere\GettingHereController.cs" />
+    <Compile Include="Views\WhenHere\WhenHereController.cs" />
+    <Compile Include="Views\MyTickets\MyTicketsController.cs" />
+    <Compile Include="Views\More\MoreController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />

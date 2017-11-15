@@ -11,6 +11,22 @@ namespace LAPhil.Logging
         void Debug<T>(string message, T propertyValue);
         void Debug<T0, T1>(string message, T0 propertyValue0, T1 propertyValue1);
         void Debug<T0, T1, T2>(string message, T0 propertyValue0, T1 propertyValue1, T2 propertyValue2);
+        void Info(string message);
+        void Info<T>(string message, T propertyValue);
+        void Info<T0, T1>(string message, T0 propertyValue0, T1 propertyValue1);
+        void Info<T0, T1, T2>(string message, T0 propertyValue0, T1 propertyValue1, T2 propertyValue2);
+        void Warn(string message);
+        void Warn<T>(string message, T propertyValue);
+        void Warn<T0, T1>(string message, T0 propertyValue0, T1 propertyValue1);
+        void Warn<T0, T1, T2>(string message, T0 propertyValue0, T1 propertyValue1, T2 propertyValue2);
+        void Error(string message);
+        void Error(Exception ex, string message);
+        void Error<T>(string message, T propertyValue);
+        void Error<T>(Exception ex, string message, T propertyValue);
+        void Error<T0, T1>(string message, T0 propertyValue0, T1 propertyValue1);
+        void Error<T0, T1>(Exception ex, string message, T0 propertyValue0, T1 propertyValue1);
+        void Error<T0, T1, T2>(string message, T0 propertyValue0, T1 propertyValue1, T2 propertyValue2);
+        void Error<T0, T1, T2>(Exception ex, string message, T0 propertyValue0, T1 propertyValue1, T2 propertyValue2);
     }
 
     public class LoggingService
@@ -45,7 +61,7 @@ namespace LAPhil.Logging
     /// A wrapper over the actual logging service 
     /// to avoid a `using` of the underlying logging provider.
     /// </summary>
-    public class Logger<TContext>
+    public class Logger<TContext>: ILog
     {
         public ILogger Log { get; private set; }
 

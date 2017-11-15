@@ -10,6 +10,7 @@ using LAPhil.Connectivity;
 using LAPhil.HTTP;
 using LAPhil.Cache;
 using LAPhil.Cache.Realm;
+using LAPhil.Analytics;
 using HollywoodBowl.Services;
 using HollywoodBowl.iOS.Services;
 
@@ -45,6 +46,7 @@ namespace HollywoodBowl.iOS
             ServiceContainer.Register(() => new EventsService(new MockEventsDriver()));
             ServiceContainer.Register(() => new SeasonsService(new MockSeasonsDriver()));
             ServiceContainer.Register(() => new FavoritesService(new MockFavoritesDriver()));
+            ServiceContainer.Register(() => new AnalyticsService(new MockAnalyticsDriver()));
             ServiceContainer.Register(() => new CacheService(new RealmDriver(
                 path: cacheFilename, 
                 serializer: new JsonSerializerService()

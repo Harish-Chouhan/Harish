@@ -8,14 +8,11 @@ using Foundation;
 using System;
 using System.CodeDom.Compiler;
 
-namespace HollywoodBowl.iOS
+namespace HollywoodBowl.iOS.Views.Components
 {
-    [Register ("ViewController")]
-    partial class ViewController
+    [Register ("TabBarButton")]
+    partial class TabBarButton
     {
-        [Outlet]
-        UIKit.UIButton Button { get; set; }
-
         void ReleaseDesignerOutlets ()
         {
         }

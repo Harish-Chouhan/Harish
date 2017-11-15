@@ -9,7 +9,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="System.Reactive" Version="3.1.1" />
     <PackageReference Include="Realm" Version="2.0.0" />
-    <PackageReference Include="akavache" Version="6.0.0-alpha0038" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
@@ -19,5 +18,11 @@
   <ItemGroup>
     <ProjectReference Include="..\LAPhil.Logging\LAPhil.Logging.csproj" />
     <ProjectReference Include="..\LAPhil.Application\LAPhil.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Drivers\AkavacheDriver.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Drivers\AkavacheDriver.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
   </ItemGroup>
 </Project>
