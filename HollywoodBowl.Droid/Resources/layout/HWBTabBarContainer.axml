@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_alignParentBottom="true"
+    android:visibility="visible"
+    android:layout_height="50dp"
+    android:layout_width="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:background="#FF00FF07">
+    <HollywoodBowl.Droid.Views.Components.TabBarButton
+        android:id="@+id/HWBTabNavigation1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:text="Home"
+        android:textSize="@dimen/font_tab"
+        android:background="#FFFFF800" />
+    <HollywoodBowl.Droid.Views.Components.TabBarButton
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:text="My Tickets"
+        android:textSize="@dimen/font_tab"
+        android:background="#FFFFB100"
+        android:id="@+id/HWBTabNavigation2" />
+    <HollywoodBowl.Droid.Views.Components.TabBarButton
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:text="Getting Here"
+        android:textSize="@dimen/font_tab"
+        android:background="#FFFF4800"
+        android:id="@+id/HWBTabNavigation3" />
+    <HollywoodBowl.Droid.Views.Components.TabBarButton
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:text="When You're Here"
+        android:textSize="@dimen/font_tab"
+        android:background="#FFFF0079"
+        android:id="@+id/HWBTabNavigation4" />
+    <HollywoodBowl.Droid.Views.Components.TabBarButton
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:text="More"
+        android:textSize="@dimen/font_tab"
+        android:background="#FFA300FF"
+        android:id="@+id/HWBTabNavigation5" />
+</LinearLayout>

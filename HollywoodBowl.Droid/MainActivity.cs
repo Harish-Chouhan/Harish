@@ -1,13 +1,23 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.Widget;
 using Android.OS;
+using System.Reactive;
+using System.Reactive.Linq;
+using LAPhil.Logging;
+using LAPhil.Application;
+using HollywoodBowl.Droid.Views.Components;
+
 
 namespace HollywoodBowl.Droid
 {
-    [Activity(Label = "HollywoodBowl", MainLauncher = true, Icon = "@mipmap/icon")]
+    
+    [Activity(Label = "HollywoodBowl", MainLauncher = true, Icon = "@mipmap/icon", Theme = "@style/AppTheme")]
     public class MainActivity : Activity
     {
-        int count = 1;
+        TabBar TabBarView { get; set; }
+        ILog Log = ServiceContainer.Resolve<LoggingService>().GetLogger<MainActivity>();
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -16,11 +26,12 @@ namespace HollywoodBowl.Droid
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            // Get our button from the layout resource,
-            // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.myButton);
+            TabBarView = FindViewById<TabBar>(Resource.Id.HWBTabBar);
 
-            button.Click += delegate { button.Text = $"{count++} clicks!"; };
+            TabBarView.Rx.Click.Subscribe((button) =>
+            {
+                Log.Debug($"Button Clicked: '{button.Text}'");
+            });
         }
     }
 }
