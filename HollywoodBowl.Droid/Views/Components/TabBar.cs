@@ -102,7 +102,7 @@ namespace HollywoodBowl.Droid.Views.Components
             LayoutInflater inflater = (LayoutInflater)Context
                 .GetSystemService(Context.LayoutInflaterService);
 
-            inflater.Inflate(Resource.Layout.TabBarContainer, root: this);
+            inflater.Inflate(Resource.Layout.TabBar, root: this);
         }
 
         protected override void OnFinishInflate()

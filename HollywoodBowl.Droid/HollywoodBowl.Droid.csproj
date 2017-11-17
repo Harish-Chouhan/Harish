@@ -125,7 +125,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Application.cs" />
@@ -133,6 +132,7 @@
     <Compile Include="Services\PathService.cs" />
     <Compile Include="Views\Components\TabBarButton.cs" />
     <Compile Include="Views\Components\TabBar.cs" />
+    <Compile Include="Views\Root\MainActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -151,8 +151,13 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\values\colors.xml" />
-    <AndroidResource Include="Resources\layout\TabBarContainer.axml" />
+    <AndroidResource Include="Resources\layout\TabBar.axml" />
     <AndroidResource Include="Resources\values\font_sizes.xml" />
+    <AndroidResource Include="Resources\layout\HomeView.axml" />
+    <AndroidResource Include="Resources\layout\MoreView.axml" />
+    <AndroidResource Include="Resources\layout\GettingHereView.axml" />
+    <AndroidResource Include="Resources\layout\WhenHereView.axml" />
+    <AndroidResource Include="Resources\layout\MyTicketsView.axml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LAPhil.Analytics\LAPhil.Analytics.csproj">
@@ -188,6 +193,12 @@
     <Folder Include="Services\" />
     <Folder Include="Views\" />
     <Folder Include="Views\Components\" />
+    <Folder Include="Views\GettingHere\" />
+    <Folder Include="Views\Home\" />
+    <Folder Include="Views\More\" />
+    <Folder Include="Views\MyTickets\" />
+    <Folder Include="Views\WhenHere\" />
+    <Folder Include="Views\Root\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Fody.2.2.0\build\netstandard1.2\Fody.targets" Condition="Exists('..\packages\Fody.2.2.0\build\netstandard1.2\Fody.targets')" />
