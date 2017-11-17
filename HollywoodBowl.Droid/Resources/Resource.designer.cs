@@ -1822,35 +1822,35 @@ namespace HollywoodBowl.Droid
 			// aapt resource value: 0x7f0b0025
 			public const int FUNCTION = 2131427365;
 			
-			// aapt resource value: 0x7f0b0065
-			public const int HWBMainFragmentContainer = 2131427429;
-			
-			// aapt resource value: 0x7f0b0066
-			public const int HWBTabBar = 2131427430;
-			
-			// aapt resource value: 0x7f0b007a
-			public const int HWBTabNavigation1 = 2131427450;
-			
-			// aapt resource value: 0x7f0b007b
-			public const int HWBTabNavigation2 = 2131427451;
-			
-			// aapt resource value: 0x7f0b007c
-			public const int HWBTabNavigation3 = 2131427452;
-			
-			// aapt resource value: 0x7f0b007d
-			public const int HWBTabNavigation4 = 2131427453;
-			
-			// aapt resource value: 0x7f0b007e
-			public const int HWBTabNavigation5 = 2131427454;
-			
 			// aapt resource value: 0x7f0b0026
 			public const int META = 2131427366;
+			
+			// aapt resource value: 0x7f0b0065
+			public const int Main_FragmentContainer = 2131427429;
+			
+			// aapt resource value: 0x7f0b0066
+			public const int Main_TabBar = 2131427430;
 			
 			// aapt resource value: 0x7f0b0027
 			public const int SHIFT = 2131427367;
 			
 			// aapt resource value: 0x7f0b0028
 			public const int SYM = 2131427368;
+			
+			// aapt resource value: 0x7f0b007a
+			public const int TabNavigation1 = 2131427450;
+			
+			// aapt resource value: 0x7f0b007b
+			public const int TabNavigation2 = 2131427451;
+			
+			// aapt resource value: 0x7f0b007c
+			public const int TabNavigation3 = 2131427452;
+			
+			// aapt resource value: 0x7f0b007d
+			public const int TabNavigation4 = 2131427453;
+			
+			// aapt resource value: 0x7f0b007e
+			public const int TabNavigation5 = 2131427454;
 			
 			// aapt resource value: 0x7f0b006a
 			public const int action0 = 2131427434;

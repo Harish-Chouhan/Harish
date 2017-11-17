@@ -133,6 +133,11 @@
     <Compile Include="Views\Components\TabBarButton.cs" />
     <Compile Include="Views\Components\TabBar.cs" />
     <Compile Include="Views\Root\MainActivity.cs" />
+    <Compile Include="Views\Home\HomeView.cs" />
+    <Compile Include="Views\More\MoreView.cs" />
+    <Compile Include="Views\GettingHere\GettingHereView.cs" />
+    <Compile Include="Views\MyTickets\MyTicketsView.cs" />
+    <Compile Include="Views\WhenHere\WhenHereView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

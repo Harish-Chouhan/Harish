@@ -9,7 +9,7 @@
     android:paddingRight="16dp"
     android:background="#FF00FF07">
     <HollywoodBowl.Droid.Views.Components.TabBarButton
-        android:id="@+id/HWBTabNavigation1"
+        android:id="@+id/TabNavigation1"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -27,7 +27,7 @@
         android:text="My Tickets"
         android:textSize="@dimen/font_tab"
         android:background="#FFFFB100"
-        android:id="@+id/HWBTabNavigation2" />
+        android:id="@+id/TabNavigation2" />
     <HollywoodBowl.Droid.Views.Components.TabBarButton
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -37,7 +37,7 @@
         android:text="Getting Here"
         android:textSize="@dimen/font_tab"
         android:background="#FFFF4800"
-        android:id="@+id/HWBTabNavigation3" />
+        android:id="@+id/TabNavigation3" />
     <HollywoodBowl.Droid.Views.Components.TabBarButton
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -47,7 +47,7 @@
         android:text="When You're Here"
         android:textSize="@dimen/font_tab"
         android:background="#FFFF0079"
-        android:id="@+id/HWBTabNavigation4" />
+        android:id="@+id/TabNavigation4" />
     <HollywoodBowl.Droid.Views.Components.TabBarButton
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -57,5 +57,5 @@
         android:text="More"
         android:textSize="@dimen/font_tab"
         android:background="#FFA300FF"
-        android:id="@+id/HWBTabNavigation5" />
+        android:id="@+id/TabNavigation5" />
 </LinearLayout>

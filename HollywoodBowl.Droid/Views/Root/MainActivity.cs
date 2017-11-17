@@ -3,11 +3,16 @@ using Android.App;
 using Android.Widget;
 using Android.OS;
 using Android.Support.V7.App;
-using System.Reactive;
 using System.Reactive.Linq;
 using LAPhil.Logging;
 using LAPhil.Application;
 using HollywoodBowl.Droid.Views.Components;
+using HollywoodBowl.Droid.Views.GettingHere;
+using HollywoodBowl.Droid.Views.Home;
+using HollywoodBowl.Droid.Views.More;
+using HollywoodBowl.Droid.Views.MyTickets;
+using HollywoodBowl.Droid.Views.WhenHere;
+
 
 
 
@@ -18,6 +23,8 @@ namespace HollywoodBowl.Droid
     public class MainActivity : AppCompatActivity
     {
         TabBar TabBarView { get; set; }
+        FrameLayout Region { get; set; }
+        IDisposable TabBarSubscription;
         ILog Log = ServiceContainer.Resolve<LoggingService>().GetLogger<MainActivity>();
 
 
@@ -27,13 +34,55 @@ namespace HollywoodBowl.Droid
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
+            TabBarView = FindViewById<TabBar>(Resource.Id.Main_TabBar);
 
-            TabBarView = FindViewById<TabBar>(Resource.Id.HWBTabBar);
+            TabBarSubscription = TabBarView.Rx.Click.Subscribe(OnTabBarClick);
+            ShowSection(new HomeView());
+        }
 
-            TabBarView.Rx.Click.Subscribe((button) =>
+        protected override void OnDestroy()
+        {
+            TabBarSubscription.Dispose();
+            base.OnDestroy();
+        }
+
+        void OnTabBarClick(TabBarButton button)
+        {
+            ShowSection(button.Id);
+        }
+
+        void ShowSection(int id)
+        {
+            Fragment fragment = null;
+            switch(id)
             {
-                Log.Debug($"Button Clicked: '{button.Text}'");
-            });
+                case Resource.Id.TabNavigation1:
+                    fragment = new HomeView();
+                    break;
+                case Resource.Id.TabNavigation2:
+                    fragment = new MyTicketsView();
+                    break;
+                case Resource.Id.TabNavigation3:
+                    fragment = new GettingHereView();
+                    break;
+                case Resource.Id.TabNavigation4:
+                    fragment = new WhenHereView();
+                    break;
+                case Resource.Id.TabNavigation5:
+                    fragment = new MoreView();
+                    break;
+                default:
+                    return;
+            }
+
+            ShowSection(fragment);
+        }
+
+        void ShowSection(Fragment fragment)
+        {
+            var transaction = FragmentManager.BeginTransaction();
+            transaction.Replace(Resource.Id.Main_FragmentContainer, fragment);
+            transaction.Commit();
         }
     }
 }

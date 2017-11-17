@@ -109,11 +109,11 @@ namespace HollywoodBowl.Droid.Views.Components
         {
             base.OnFinishInflate();
 
-            Rx.Buttons.OnNext(FindViewById<TabBarButton>(Resource.Id.HWBTabNavigation1).Rx.Click);
-            Rx.Buttons.OnNext(FindViewById<TabBarButton>(Resource.Id.HWBTabNavigation2).Rx.Click);
-            Rx.Buttons.OnNext(FindViewById<TabBarButton>(Resource.Id.HWBTabNavigation3).Rx.Click);
-            Rx.Buttons.OnNext(FindViewById<TabBarButton>(Resource.Id.HWBTabNavigation4).Rx.Click);
-            Rx.Buttons.OnNext(FindViewById<TabBarButton>(Resource.Id.HWBTabNavigation5).Rx.Click);
+            Rx.Buttons.OnNext(FindViewById<TabBarButton>(Resource.Id.TabNavigation1).Rx.Click);
+            Rx.Buttons.OnNext(FindViewById<TabBarButton>(Resource.Id.TabNavigation2).Rx.Click);
+            Rx.Buttons.OnNext(FindViewById<TabBarButton>(Resource.Id.TabNavigation3).Rx.Click);
+            Rx.Buttons.OnNext(FindViewById<TabBarButton>(Resource.Id.TabNavigation4).Rx.Click);
+            Rx.Buttons.OnNext(FindViewById<TabBarButton>(Resource.Id.TabNavigation5).Rx.Click);
         }
     }
 }
