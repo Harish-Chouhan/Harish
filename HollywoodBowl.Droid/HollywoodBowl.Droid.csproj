@@ -151,7 +151,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\values\colors.xml" />
-    <AndroidResource Include="Resources\layout\HWBTabBarContainer.axml" />
+    <AndroidResource Include="Resources\layout\TabBarContainer.axml" />
     <AndroidResource Include="Resources\values\font_sizes.xml" />
   </ItemGroup>
   <ItemGroup>

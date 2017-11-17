@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="0.0dp"
-        android:layout_above="@id/HWBTabBar" />
+        android:layout_above="@+id/HWBTabBar" />
     <HollywoodBowl.Droid.Views.Components.TabBar
         android:id="@+id/HWBTabBar"
         android:layout_width="match_parent"
