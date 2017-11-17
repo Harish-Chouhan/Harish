@@ -1,8 +1,10 @@
 ﻿using System;
 using Android.App;
 using Android.Widget;
+using Android.Content.PM;
 using Android.OS;
 using Android.Support.V7.App;
+
 using System.Reactive.Linq;
 using LAPhil.Logging;
 using LAPhil.Application;
@@ -19,7 +21,7 @@ using HollywoodBowl.Droid.Views.WhenHere;
 namespace HollywoodBowl.Droid
 {
     
-    [Activity(Label = "HollywoodBowl", MainLauncher = true, Icon = "@mipmap/icon", Theme = "@style/AppTheme")]
+    [Activity(Label = "HollywoodBowl", MainLauncher = true, Icon = "@mipmap/icon", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : AppCompatActivity
     {
         TabBar TabBarView { get; set; }
