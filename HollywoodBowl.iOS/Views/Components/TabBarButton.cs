@@ -35,12 +35,6 @@ namespace HollywoodBowl.iOS.Views.Components
             View.AddGestureRecognizer(Click);
         }
 
-        public override void DidReceiveMemoryWarning()
-        {
-            base.DidReceiveMemoryWarning();
-            // Release any cached data, images, etc that aren't in use.
-        }
-
         void OnClick(UITapGestureRecognizer sender)
         {
             if(sender.State == UIGestureRecognizerState.Ended)

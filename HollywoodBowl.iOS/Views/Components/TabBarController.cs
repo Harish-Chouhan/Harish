@@ -19,17 +19,21 @@ namespace HollywoodBowl.iOS.Views.Components
             public IObservable<TabBarButton> Click => ClickMerge;
 
             internal _Rx(){
-                ClickMerge = Observable
+                var publisher = Observable
                     .Merge(Buttons)
                     .Where(x => x.IsSelected == false)
                     .Scan(seed: default(TabBarButton), accumulator: (previous, latest) =>
                     {
-                        if (previous != null) 
+                        if (previous != null)
                             previous.IsSelected = false;
-                        
+
                         latest.IsSelected = true;
                         return latest;
-                    });
+                    })
+                    .Publish();
+
+                publisher.Connect();
+                ClickMerge = publisher.AsObservable();
             }
         }
 

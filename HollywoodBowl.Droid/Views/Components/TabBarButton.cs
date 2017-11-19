@@ -43,9 +43,7 @@ namespace HollywoodBowl.Droid.Views.Components
         void Initialize()
         {
             Clickable = true;
-            IsSelected = false;
             Click += OnClick;
-
         }
 
         void OnClick(object sender, EventArgs e)
