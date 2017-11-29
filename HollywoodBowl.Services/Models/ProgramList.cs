@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
 namespace HollywoodBowl.Services
 {
-    public class ApiProgram
+    public class ProgramList
     {
-        public List<Performance> Data { get; set; }
+        public List<Program> Data { get; set; }
 
-        public ApiProgram()
+        public ProgramList()
         {
         }
     }

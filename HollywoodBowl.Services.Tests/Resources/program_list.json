@@ -2,17 +2,17 @@
   "data": [
     {
       "id": 1,
-      "lease_event": false,
-      "name": "Holiday Music",
+      "lease_event": true,
+      "name": "Music",
       "image": "https://www.example.com/foo.jpg",
-      "description": "<p>Lorem ipsum dolor</p>"
+      "description": "<p>Lorem ipsum dolor</p>",
       "preperformance_speaker": {
         "first_name": "Alice",
         "last_name": "Boyum",
         "title": "Art Critic",
         "bio": "<p>Lorem ipsum dolor</p>",
         "website": "https://www.example.com",
-        "organization": ""
+        "organization": "LA Times"
       },
       "season": {
         "name": "Season HB 5",

@@ -8,6 +8,14 @@ namespace HollywoodBowl.Services.Json
     public class TimeOnlyConverter: JsonConverter
     {
 
+        public TimeOnlyConverter(params Type[] types)
+        {
+        }
+
+        public TimeOnlyConverter()
+        {
+        }
+
         public override bool CanConvert(Type objectType)
         {
             return true;

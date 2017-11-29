@@ -109,6 +109,84 @@ namespace HollywoodBowl.Services.Tests
         }
 
         [Fact]
+        public void DeserializeProgramDetail()
+        {
+            var data = ResourceManager.FileString("program_detail.json");
+            var obj = JsonConvert.DeserializeObject<ProgramDetail>(data, json.Settings);
+
+            Assert.NotNull(obj.Data);
+            Assert.True(obj.Data.Performers.Count == 2);
+            Assert.True(obj.Data.Partners.Count == 1);
+            Assert.True(obj.Data.Pieces.Count == 1);
+
+            Assert.True(obj.Data.Pieces[0].Name == "Piece Name");
+            Assert.True(obj.Data.Pieces[0].Duration.Ticks == new TimeSpan(hours: 0, minutes: 0, seconds: 300).Ticks);
+            Assert.True(obj.Data.Pieces[0].Description == "<p>Lorem Ipsum Dolor</p>");
+            Assert.True(obj.Data.Pieces[0].Composer.FirstName == "John");
+            Assert.True(obj.Data.Pieces[0].Composer.LastName == "Korsman");
+            Assert.True(obj.Data.Pieces[0].Composer.Title == "Composer");
+            Assert.True(obj.Data.Pieces[0].Composer.Bio == "<p>Lorem ipsum dolor</p>");
+
+            Assert.True(obj.Data.Partners[0].Name == "SLB Printing");
+            Assert.True(obj.Data.Partners[0].Relationship == PartnerType.Media);
+            Assert.True(obj.Data.Partners[0].Description == "<p>Lorem ipsum dolor</p>");
+            Assert.True(obj.Data.Partners[0].Tagline == "Service Beyond Expectation");
+            Assert.True(obj.Data.Partners[0].Website == "https://www.example.com");
+            Assert.True(obj.Data.Partners[0].Image == "https://www.example.com/foo.jpg");
+
+            Assert.True(obj.Data.Performers[0].FirstName == "Lucy");
+            Assert.True(obj.Data.Performers[0].LastName == "Pepper");
+            Assert.True(obj.Data.Performers[0].Title == "Choreographer");
+            Assert.True(obj.Data.Performers[0].Bio == "<p>Lorem ipsum dolor</p>");
+            Assert.True(obj.Data.Performers[0].Website == "https://www.example.com");
+            Assert.True(obj.Data.Performers[0].Organization == "");
+
+            Assert.True(obj.Data.Performers[1].FirstName == "Ollie");
+            Assert.True(obj.Data.Performers[1].LastName == "Chisholm");
+            Assert.True(obj.Data.Performers[1].Title == "Costume Designer");
+            Assert.True(obj.Data.Performers[1].Bio == "<p>Lorem ipsum dolor</p>");
+            Assert.True(obj.Data.Performers[1].Website == "");
+            Assert.True(obj.Data.Performers[1].Organization == "Artist Organization");
+        }
+
+        [Fact]
+        public void DeserializeProgramList()
+        {
+            var data = ResourceManager.FileString("program_list.json");
+            var obj = JsonConvert.DeserializeObject<ProgramList>(data, json.Settings);
+
+            Assert.True(obj.Data.Count == 1);
+            Assert.True(obj.Data[0].Id == 1);
+            Assert.True(obj.Data[0].IsLeaseEvent == true);
+            Assert.True(obj.Data[0].Name == "Music");
+            Assert.True(obj.Data[0].Image == "https://www.example.com/foo.jpg");
+            Assert.True(obj.Data[0].Description == "<p>Lorem ipsum dolor</p>");
+            Assert.True(obj.Data[0].PreperformanceSpeaker.FirstName == "Alice");
+            Assert.True(obj.Data[0].PreperformanceSpeaker.LastName == "Boyum");
+            Assert.True(obj.Data[0].PreperformanceSpeaker.Title == "Art Critic");
+            Assert.True(obj.Data[0].PreperformanceSpeaker.Bio == "<p>Lorem ipsum dolor</p>");
+            Assert.True(obj.Data[0].PreperformanceSpeaker.Website == "https://www.example.com");
+            Assert.True(obj.Data[0].PreperformanceSpeaker.Organization == "LA Times");
+            Assert.True(obj.Data[0].Season.Name == "Season HB 5");
+            Assert.True(obj.Data[0].Season.StartDate == new DateTime(2017, 01, 20));
+            Assert.True(obj.Data[0].Season.EndDate == new DateTime(2017, 12, 31));
+            Assert.True(obj.Data[0].Venue.Name == "Venue 1");
+            Assert.True(obj.Data[0].Venue.Website == "https://www.example.com");
+            Assert.True(obj.Data[0].Venue.Phone == "310-555-5555");
+            Assert.True(obj.Data[0].Venue.Address == "1234 Lane Ave., Los Angeles, CA 90001");
+            Assert.True(obj.Data[0].Venue.Image == "https://www.example.com/foo.jpg");
+            Assert.True(obj.Data[0].Venue.Description == "<p>Lorem ipsum dolor</p>");
+            Assert.True(obj.Data[0].Performances.Count == 1);
+            Assert.True(obj.Data[0].Performances[0].StartTime == new DateTimeOffset(year: 2017, month: 3, day: 25, hour: 18, minute: 30, second: 0, offset: new TimeSpan()));
+            Assert.True(obj.Data[0].Performances[0].PresaleTime == new DateTimeOffset(year: 2017, month: 3, day: 1, hour: 0, minute: 0, second: 0, offset: new TimeSpan()));
+            Assert.True(obj.Data[0].Performances[0].SaleTime == new DateTimeOffset(year: 2017, month: 3, day: 5, hour: 0, minute: 0, second: 0, offset: new TimeSpan()));
+            Assert.True(obj.Data[0].Performances[0].GateTime == new DateTimeOffset(year: 2017, month: 3, day: 25, hour: 17, minute: 0, second: 0, offset: new TimeSpan()));
+            Assert.True(obj.Data[0].Performances[0].PreperformanceTalkStartTime == new DateTime(year: 0001, month: 1, day: 1, hour: 15, minute: 0, second: 0));
+            Assert.True(obj.Data[0].Performances[0].Series.Name == "Thursday Night Classics");
+            Assert.True(obj.Data[0].Performances[0].Series.ShortCode == "TNC");
+        }
+
+        [Fact]
         public void DeserializeSeason()
         {
             var data = ResourceManager.FileString("season.json");

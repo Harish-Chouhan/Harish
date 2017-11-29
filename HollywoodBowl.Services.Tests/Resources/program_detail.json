@@ -1,0 +1,47 @@
+﻿{
+  "data": {
+    "performers": [
+      {
+        "first_name": "Lucy",
+        "last_name": "Pepper",
+        "title": "Choreographer",
+        "bio": "<p>Lorem ipsum dolor</p>",
+        "website": "https://www.example.com",
+        "organization": ""
+      },
+      {
+        "first_name": "Ollie",
+        "last_name": "Chisholm",
+        "title": "Costume Designer",
+        "bio": "<p>Lorem ipsum dolor</p>",
+        "website": "",
+        "organization": "Artist Organization"
+      }
+    ],
+
+    "partners": [
+      {
+        "relationship": "Media Sponsor",
+        "name": "SLB Printing",
+        "tagline": "Service Beyond Expectation",
+        "website": "https://www.example.com",
+        "image": "https://www.example.com/foo.jpg",
+        "description": "<p>Lorem ipsum dolor</p>"
+      }
+    ],
+
+    "pieces": [
+      {
+        "name": "Piece Name",
+        "duration": 300,
+        "description": "<p>Lorem Ipsum Dolor</p>",
+        "composer": {
+          "first_name": "John",
+          "last_name": "Korsman",
+          "title": "Composer",
+          "bio": "<p>Lorem ipsum dolor</p>"
+        }
+      }
+    ]
+  }
+}
