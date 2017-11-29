@@ -6,7 +6,7 @@ namespace HollywoodBowl.Services
     public class Season: IIdentifiable
     {
         public int Id { get; set; }
-        public string Label { get; set; }
+        public string Name { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 

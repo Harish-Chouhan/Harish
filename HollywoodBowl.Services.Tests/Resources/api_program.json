@@ -1,0 +1,45 @@
+﻿{
+  "data": [
+    {
+      "id": 1,
+      "lease_event": false,
+      "name": "Holiday Music",
+      "image": "https://www.example.com/foo.jpg",
+      "description": "<p>Lorem ipsum dolor</p>"
+      "preperformance_speaker": {
+        "first_name": "Alice",
+        "last_name": "Boyum",
+        "title": "Art Critic",
+        "bio": "<p>Lorem ipsum dolor</p>",
+        "website": "https://www.example.com",
+        "organization": ""
+      },
+      "season": {
+        "name": "Season HB 5",
+        "start_date": "2017-01-20",
+        "end_date": "2017-12-31"
+      },
+      "venue": {
+        "name": "Venue 1",
+        "website": "https://www.example.com",
+        "phone": "310-555-5555",
+        "address": "1234 Lane Ave., Los Angeles, CA 90001",
+        "image": "https://www.example.com/foo.jpg",
+        "description": "<p>Lorem ipsum dolor</p>"
+      },
+      "performances": [
+        {
+          "start_time": "2017-03-25T18:30:00Z",
+          "presale_time": "2017-03-01T00:00:00Z",
+          "sale_time": "2017-03-05T00:00:00Z",
+          "gate_time": "2017-03-25T17:00:00Z",
+          "preperformance_talk_start_time": "15:00",
+          "series": {
+            "name": "Thursday Night Classics",
+            "shortcode": "TNC"
+          }
+        }
+      ]
+    }
+  ]
+}

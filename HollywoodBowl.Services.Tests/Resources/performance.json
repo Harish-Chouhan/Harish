@@ -1,0 +1,11 @@
+﻿{
+  "start_time": "2017-03-25T18:30:00Z",
+  "presale_time": "2017-03-01T00:00:00Z",
+  "sale_time": "2017-03-05T00:00:00Z",
+  "gate_time": "2017-03-25T17:00:00Z",
+  "preperformance_talk_start_time": "15:00",
+  "series": {
+    "name": "Thursday Night Classics",
+    "shortcode": "TNC"
+  }
+}

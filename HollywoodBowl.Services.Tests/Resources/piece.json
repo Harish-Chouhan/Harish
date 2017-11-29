@@ -1,0 +1,11 @@
+﻿{
+  "name": "Piece Name",
+  "duration": 300,
+  "description": "<p>Lorem Ipsum Dolor</p>",
+  "composer": {
+    "first_name": "John",
+    "last_name": "Korsman",
+    "title": "Composer",
+    "bio": "<p>Lorem ipsum dolor</p>"
+  }
+}

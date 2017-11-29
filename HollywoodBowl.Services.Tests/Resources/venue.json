@@ -1,0 +1,8 @@
+﻿{
+  "name": "Venue 1",
+  "website": "https://www.example.com",
+  "phone": "310-555-5555",
+  "address": "1234 Lane Ave., Los Angeles, CA 90001",
+  "image": "https://www.example.com/foo.jpg",
+  "description": "<p>Lorem ipsum dolor</p>"
+}
