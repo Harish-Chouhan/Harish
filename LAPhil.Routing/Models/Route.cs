@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
 namespace LAPhil.Routing
 {
     public class Route
@@ -10,14 +11,16 @@ namespace LAPhil.Routing
         public Action<Request> Action { get; private set; }
 
         Router _router;
-        public Router Router { 
+        public Router Router
+        {
             get => _router;
 
-            internal set {
+            internal set
+            {
                 _router = value;
                 Children.ForEach(x => x.Router = value);
                 Router.Register(this);
-            } 
+            }
         }
 
         public Route(string path, Action<Request> action)

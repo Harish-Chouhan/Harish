@@ -51,13 +51,23 @@ namespace HollywoodBowl.iOS
             ServiceContainer.Register(() => new SeasonsService(new MockSeasonsDriver()));
             ServiceContainer.Register(() => new FavoritesService(new MockFavoritesDriver()));
             ServiceContainer.Register(() => new AnalyticsService(new MockAnalyticsDriver()));
-            ServiceContainer.Register(InitRoutes());
+
             ServiceContainer.Register(() => new CacheService(new RealmDriver(
                 path: cacheFilename, 
                 serializer: new JsonSerializerService()
             )));
 
+            ServiceContainer.Register(
+                new Router(children: new List<Route> {
+
+                    new Route(path: @"/concerts/:season/:slug/2018-01-05/", action: (request) => {
+                        Log.Debug($"Invoked segment 'foo' {request.Params}");
+                    })
+            }));
+
+            // Testing things beyond this point
             Log = ServiceContainer.Resolve<LoggingService>().GetLogger<AppDelegate>();
+            ServiceContainer.Resolve<Router>().Navigate("/concerts/2017-2018/foo-bar-baz/2018-01-05");
 
             Task.Run(() => {
                 var eventsService = ServiceContainer.Resolve<EventsService>();
@@ -68,20 +78,8 @@ namespace HollywoodBowl.iOS
                      var foo = 1;
                  });
             });
+
             return true;
-        }
-
-        public Router InitRoutes()
-        {
-            var router = new Router(children: new List<Route> {
-
-                new Route(path: @"/concerts/:seasonStart(\d+)-:seasonEnd(\d+)/:slug([\w\-]+)/2018-01-05/", action: (request) => {
-                    Log.Debug($"Invoked segment 'foo' {request.Params}");
-                })
-            });
-
-            router.Navigate("/concerts/2017-2018/foo-bar-baz/2018-01-05");
-            return router;
         }
 
         public override void OnResignActivation(UIApplication application)

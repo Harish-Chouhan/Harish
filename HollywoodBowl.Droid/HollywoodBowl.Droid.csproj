@@ -193,6 +193,10 @@
       <Project>{AA3854BC-6D8B-44B1-9A0F-02FDBD362D08}</Project>
       <Name>HollywoodBowl.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LAPhil.Routing\LAPhil.Routing.csproj">
+      <Project>{138FF7B2-D828-4693-8337-AA8A515B7BB8}</Project>
+      <Name>LAPhil.Routing</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
