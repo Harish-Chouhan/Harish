@@ -138,6 +138,7 @@
     <Compile Include="Views\GettingHere\GettingHereView.cs" />
     <Compile Include="Views\MyTickets\MyTicketsView.cs" />
     <Compile Include="Views\WhenHere\WhenHereView.cs" />
+    <Compile Include="Services\CurrentActivityService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

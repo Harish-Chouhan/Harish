@@ -20,7 +20,7 @@ using HollywoodBowl.Droid.Views.WhenHere;
 
 namespace HollywoodBowl.Droid
 {
-    
+
     [Activity(Label = "HollywoodBowl", MainLauncher = true, Icon = "@mipmap/icon", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : AppCompatActivity
     {
@@ -28,6 +28,7 @@ namespace HollywoodBowl.Droid
         FrameLayout Region { get; set; }
         IDisposable TabBarSubscription;
         ILog Log = ServiceContainer.Resolve<LoggingService>().GetLogger<MainActivity>();
+        public int CurrentSection { get; internal set; } = Resource.Id.TabNavigation1;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -39,7 +40,7 @@ namespace HollywoodBowl.Droid
             TabBarView = FindViewById<TabBar>(Resource.Id.Main_TabBar);
 
             TabBarSubscription = TabBarView.Rx.Click.Subscribe(OnTabBarClick);
-            ShowSection(new HomeView());
+            ShowSection(CurrentSection);
         }
 
         protected override void OnDestroy()
@@ -53,7 +54,7 @@ namespace HollywoodBowl.Droid
             ShowSection(button.Id);
         }
 
-        void ShowSection(int id)
+        public void ShowSection(int id, Bundle bundle = null)
         {
             Fragment fragment = null;
             switch(id)
@@ -77,11 +78,14 @@ namespace HollywoodBowl.Droid
                     return;
             }
 
-            ShowSection(fragment);
+            CurrentSection = id;
+            ShowSection(fragment: fragment, bundle: bundle);
         }
 
-        void ShowSection(Fragment fragment)
+        public void ShowSection(Fragment fragment, Bundle bundle = null)
         {
+            fragment.Arguments = bundle;
+
             var transaction = FragmentManager.BeginTransaction();
             transaction.Replace(Resource.Id.Main_FragmentContainer, fragment);
             transaction.AddToBackStack(null);
