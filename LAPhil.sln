@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAPhil.Analytics", "LAPhil.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HollywoodBowl.Services.Tests", "HollywoodBowl.Services.Tests\HollywoodBowl.Services.Tests.csproj", "{F9C9FD8E-02A4-4DCC-8B88-5D2BCEC968A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAPhil.Routing", "LAPhil.Routing\LAPhil.Routing.csproj", "{138FF7B2-D828-4693-8337-AA8A515B7BB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -179,5 +181,17 @@ Global
 		{F9C9FD8E-02A4-4DCC-8B88-5D2BCEC968A5}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{F9C9FD8E-02A4-4DCC-8B88-5D2BCEC968A5}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{F9C9FD8E-02A4-4DCC-8B88-5D2BCEC968A5}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{138FF7B2-D828-4693-8337-AA8A515B7BB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{138FF7B2-D828-4693-8337-AA8A515B7BB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{138FF7B2-D828-4693-8337-AA8A515B7BB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{138FF7B2-D828-4693-8337-AA8A515B7BB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{138FF7B2-D828-4693-8337-AA8A515B7BB8}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{138FF7B2-D828-4693-8337-AA8A515B7BB8}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{138FF7B2-D828-4693-8337-AA8A515B7BB8}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{138FF7B2-D828-4693-8337-AA8A515B7BB8}.Release|iPhone.Build.0 = Release|Any CPU
+		{138FF7B2-D828-4693-8337-AA8A515B7BB8}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{138FF7B2-D828-4693-8337-AA8A515B7BB8}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{138FF7B2-D828-4693-8337-AA8A515B7BB8}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{138FF7B2-D828-4693-8337-AA8A515B7BB8}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

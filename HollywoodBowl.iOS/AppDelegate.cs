@@ -3,6 +3,7 @@ using UIKit;
 using System;
 using System.Threading.Tasks;
 using System.IO;
+using System.Collections.Generic;
 using System.Reactive.Linq;
 using LAPhil.Application;
 using LAPhil.Logging;
@@ -11,18 +12,21 @@ using LAPhil.HTTP;
 using LAPhil.Cache;
 using LAPhil.Cache.Realm;
 using LAPhil.Analytics;
+using LAPhil.Routing;
 using HollywoodBowl.Services;
 using HollywoodBowl.iOS.Services;
 
 
 namespace HollywoodBowl.iOS
 {
+    
     // The UIApplicationDelegate for the application. This class is responsible for launching the
     // User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
     [Register("AppDelegate")]
     public class AppDelegate : UIApplicationDelegate
     {
         // class-level declarations
+        ILog Log { get; set; }
 
 
         public override UIWindow Window
@@ -47,11 +51,13 @@ namespace HollywoodBowl.iOS
             ServiceContainer.Register(() => new SeasonsService(new MockSeasonsDriver()));
             ServiceContainer.Register(() => new FavoritesService(new MockFavoritesDriver()));
             ServiceContainer.Register(() => new AnalyticsService(new MockAnalyticsDriver()));
+            ServiceContainer.Register(InitRoutes());
             ServiceContainer.Register(() => new CacheService(new RealmDriver(
                 path: cacheFilename, 
                 serializer: new JsonSerializerService()
             )));
 
+            Log = ServiceContainer.Resolve<LoggingService>().GetLogger<AppDelegate>();
 
             Task.Run(() => {
                 var eventsService = ServiceContainer.Resolve<EventsService>();
@@ -63,6 +69,19 @@ namespace HollywoodBowl.iOS
                  });
             });
             return true;
+        }
+
+        public Router InitRoutes()
+        {
+            var router = new Router(children: new List<Route> {
+
+                new Route(path: @"/concerts/:seasonStart(\d+)-:seasonEnd(\d+)/:slug([\w\-]+)/2018-01-05/", action: (request) => {
+                    Log.Debug($"Invoked segment 'foo' {request.Params}");
+                })
+            });
+
+            router.Navigate("/concerts/2017-2018/foo-bar-baz/2018-01-05");
+            return router;
         }
 
         public override void OnResignActivation(UIApplication application)

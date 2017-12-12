@@ -84,6 +84,7 @@ namespace HollywoodBowl.Droid
         {
             var transaction = FragmentManager.BeginTransaction();
             transaction.Replace(Resource.Id.Main_FragmentContainer, fragment);
+            transaction.AddToBackStack(null);
             transaction.Commit();
         }
     }
