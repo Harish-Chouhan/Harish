@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
 using Android.App;
 using Android.Runtime;
 using LAPhil.Application;
@@ -9,6 +10,7 @@ using LAPhil.HTTP;
 using LAPhil.Cache;
 using LAPhil.Cache.Realm;
 using LAPhil.Analytics;
+using LAPhil.Routing;
 using HollywoodBowl.Services;
 using HollywoodBowl.Droid.Services;
 
@@ -18,7 +20,8 @@ namespace HollywoodBowl.Droid
     [Application]
     public class Application: Android.App.Application
     {
-        
+        ILog Log { get; set; }
+
         public Application(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
         {
         }
@@ -45,6 +48,18 @@ namespace HollywoodBowl.Droid
                 path: cacheFilename,
                 serializer: new JsonSerializerService()
             )));
+
+            ServiceContainer.Register(
+                new Router(children: new List<Route> {
+
+                    new Route(path: @"/concerts/:season/:slug/2018-01-05/", action: (request) => {
+                        Log.Debug($"Invoked segment 'foo' {request.Params}");
+                    })
+            }));
+
+            // Testing things beyond this point
+            Log = ServiceContainer.Resolve<LoggingService>().GetLogger<Application>();
+            ServiceContainer.Resolve<Router>().Navigate("/concerts/2017-2018/foo-bar-baz/2018-01-05");
         }
     }
 }
