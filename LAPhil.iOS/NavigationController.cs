@@ -30,7 +30,7 @@ namespace LAPhil.iOS
             if (_history == null)
             {
                 // #2 Use it
-                _history = new CarouselPage().CreateViewController();
+                _history = new Onboarding.Forms.Onboarding().CreateViewController();
             }
 
             // And push it onto the navigation stack
