@@ -73,7 +73,7 @@ namespace HollywoodBowl.Droid
 
             Task.Run(() => {
                 //await Task.Delay(2000);
-                ServiceContainer.Resolve<Router>().Navigate("/concerts/2017-2018/foo-bar-baz/2018-01-05");    
+                ServiceContainer.Resolve<Router>().Navigate("/concerts/2017-2018/foo-bar-baz/2018-01-05/");    
             });
 
         }

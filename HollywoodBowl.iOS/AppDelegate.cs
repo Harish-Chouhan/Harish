@@ -1,6 +1,9 @@
 ﻿using Foundation;
 using UIKit;
 using System;
+using System.Reactive;
+using System.Reactive.Linq;
+using System.Reactive.Concurrency;
 using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
@@ -13,6 +16,8 @@ using LAPhil.Cache;
 using LAPhil.Cache.Realm;
 using LAPhil.Analytics;
 using LAPhil.Routing;
+using LAPhil.Settings;
+using LAPhil.Settings.Realm;
 using HollywoodBowl.Services;
 using HollywoodBowl.iOS.Services;
 
@@ -38,8 +43,13 @@ namespace HollywoodBowl.iOS
             // create the concrete instance.
 
             var cacheStoragePath = PathService.CachePath;
+            var settingsStoragePath = PathService.SettingsPath;
+
             var cacheFilename = Path.Combine(cacheStoragePath, "cache.realm");
+            var settingsFilename = Path.Combine(settingsStoragePath, "settings.realm");
+
             PathService.CreatePath(cacheStoragePath);
+            PathService.CreatePath(settingsStoragePath);
 
             ServiceContainer.Register(new LoggingService(new Services.PlatfromLogger()));
             ServiceContainer.Register(() => new ConnectivityService());
@@ -49,7 +59,11 @@ namespace HollywoodBowl.iOS
             ServiceContainer.Register(() => new FavoritesService(new MockFavoritesDriver()));
             ServiceContainer.Register(() => new AnalyticsService(new MockAnalyticsDriver()));
 
-            ServiceContainer.Register(() => new CacheService(new RealmDriver(
+            ServiceContainer.Register(() => new SettingsService(new LAPhil.Settings.Realm.RealmDriver(
+                path: settingsFilename
+            )));
+
+            ServiceContainer.Register(() => new CacheService(new LAPhil.Cache.Realm.RealmDriver(
                 path: cacheFilename, 
                 serializer: new JsonSerializerService()
             )));
@@ -62,19 +76,29 @@ namespace HollywoodBowl.iOS
                     })
             }));
 
-            // Testing things beyond this point
             Log = ServiceContainer.Resolve<LoggingService>().GetLogger<AppDelegate>();
-            ServiceContainer.Resolve<Router>().Navigate("/concerts/2017-2018/foo-bar-baz/2018-01-05");
 
-            Task.Run(() => {
-                var eventsService = ServiceContainer.Resolve<EventsService>();
+            // Testing things beyond this point
+            //ServiceContainer.Resolve<Router>().Navigate("/concerts/2017-2018/foo-bar-baz/2018-01-05");
 
-                eventsService.InRange(DateTime.Today, DateTime.Today)
-                 .Subscribe((value) =>
-                 {
-                     var foo = 1;
-                 });
-            });
+            //Task.Run(async () => {
+            //    var settingsService = ServiceContainer.Resolve<SettingsService>();
+            //    var settings = await settingsService.AppSettings();
+            //    settings.IsFirstRun = false;
+            //    await settingsService.Write(settings);
+
+            //});
+
+
+            //Task.Run(() => {
+            //    var eventsService = ServiceContainer.Resolve<EventsService>();
+
+            //    eventsService.InRange(DateTime.Today, DateTime.Today)
+            //     .Subscribe((value) =>
+            //     {
+            //         var foo = 1;
+            //     });
+            //});
 
             return true;
         }

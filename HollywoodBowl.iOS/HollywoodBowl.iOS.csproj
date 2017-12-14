@@ -164,6 +164,10 @@
       <Project>{138FF7B2-D828-4693-8337-AA8A515B7BB8}</Project>
       <Name>LAPhil.Routing</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LAPhil.Settings\LAPhil.Settings.csproj">
+      <Project>{A2EE0917-F18F-4AA2-88C8-8581E242A31A}</Project>
+      <Name>LAPhil.Settings</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
