@@ -25,6 +25,8 @@ namespace HollywoodBowl.iOS
     {
         ILog Log { get; set; }
 
+        UIViewController _onboardingViewController;
+
 
         public override UIWindow Window
         {
@@ -75,6 +77,16 @@ namespace HollywoodBowl.iOS
                      var foo = 1;
                  });
             });
+
+            Forms.Init();
+
+            if (_historyViewController == null)
+            {
+                // #2 ADD
+                _historyViewController = new HistoryPage().CreateViewController();
+            }
+
+            _navigation.PushViewController(_historyViewController, true);
 
             return true;
         }

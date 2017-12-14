@@ -7,12 +7,11 @@
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
-using UIKit;
 
-namespace HollywoodBowl.iOS.Views.Home
+namespace HollywoodBowl.iOS.Views.More
 {
-    [Register ("HomeController")]
-    partial class HomeController
+    [Register ("MoreController")]
+    partial class MoreController
     {
         void ReleaseDesignerOutlets ()
         {

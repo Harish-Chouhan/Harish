@@ -2,7 +2,9 @@
 
 using UIKit;
 
+using Login.Forms;
 using Onboarding.Forms;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
@@ -27,10 +29,15 @@ namespace LAPhil.iOS
         {
             base.ViewDidAppear(animated);
 
+            // Hide the navigation bar on the this view controller
+            base.SetNavigationBarHidden(true, true);
+
             if (_history == null)
             {
                 // #2 Use it
-                _history = new Onboarding.Forms.Onboarding().CreateViewController();
+                //_history = new Onboarding.Forms.Onboarding().CreateViewController();
+                _history = new Login.Forms.LoginPage().CreateViewController();
+                //_history.View.Frame = base.View.Frame;
             }
 
             // And push it onto the navigation stack

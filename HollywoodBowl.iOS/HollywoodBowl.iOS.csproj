@@ -91,10 +91,6 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Serilog">
-      <HintPath>..\packages\Serilog.2.5.0\lib\netstandard1.3\Serilog.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Serilog.Sinks.Xamarin.iOS">
       <HintPath>..\packages\Serilog.Sinks.Xamarin.0.1.29\lib\Xamarin.iOS10\Serilog.Sinks.Xamarin.iOS.dll</HintPath>
     </Reference>
@@ -129,6 +125,10 @@
     </Reference>
     <Reference Include="Realm.Sync">
       <HintPath>..\packages\Realm.2.1.0\lib\netstandard1.4\Realm.Sync.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog">
+      <HintPath>..\packages\Serilog.2.6.0\lib\netstandard1.3\Serilog.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -227,9 +227,9 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />
   <Import Project="..\packages\Fody.2.1.2\build\netstandard1.0\Fody.targets" Condition="Exists('..\packages\Fody.2.1.2\build\netstandard1.0\Fody.targets')" />
-  <Import Project="..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />
   <Import Project="..\packages\Realm.Database.2.0.0\build\Realm.Database.targets" Condition="Exists('..\packages\Realm.Database.2.0.0\build\Realm.Database.targets')" />
   <Import Project="..\packages\Realm.2.0.0\build\Realm.targets" Condition="Exists('..\packages\Realm.2.0.0\build\Realm.targets')" />
   <Import Project="..\packages\Realm.Database.2.1.0\build\Realm.Database.targets" Condition="Exists('..\packages\Realm.Database.2.1.0\build\Realm.Database.targets')" />
   <Import Project="..\packages\Realm.2.1.0\build\Realm.targets" Condition="Exists('..\packages\Realm.2.1.0\build\Realm.targets')" />
+  <Import Project="..\packages\Fody.2.2.1.0\build\netstandard1.2\Fody.targets" Condition="Exists('..\packages\Fody.2.2.1.0\build\netstandard1.2\Fody.targets')" />
 </Project>
