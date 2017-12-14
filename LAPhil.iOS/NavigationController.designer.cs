@@ -10,18 +10,11 @@ using System.CodeDom.Compiler;
 
 namespace LAPhil.iOS
 {
-    [Register ("ViewController")]
-    partial class ViewController
+    [Register ("NavigationController")]
+    partial class NavigationController
     {
-        [Outlet]
-        UIKit.UIButton Button { get; set; }
-
         void ReleaseDesignerOutlets ()
         {
-            if (Button != null) {
-                Button.Dispose ();
-                Button = null;
-            }
         }
     }
 }

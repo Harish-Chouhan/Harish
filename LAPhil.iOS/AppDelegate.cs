@@ -1,5 +1,7 @@
 ﻿using Foundation;
 using UIKit;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.iOS;
 
 namespace LAPhil.iOS
 {
@@ -20,6 +22,7 @@ namespace LAPhil.iOS
         {
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
+            Forms.Init();
 
             return true;
         }

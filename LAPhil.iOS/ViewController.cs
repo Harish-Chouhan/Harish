@@ -2,6 +2,10 @@
 
 using UIKit;
 
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.iOS;
+
+
 namespace LAPhil.iOS
 {
     public partial class ViewController : UIViewController
@@ -23,6 +27,8 @@ namespace LAPhil.iOS
                 var title = string.Format("{0} clicks!", count++);
                 Button.SetTitle(title, UIControlState.Normal);
             };
+
+            // new HistoryPage().CreateViewController()
         }
 
         public override void DidReceiveMemoryWarning()
