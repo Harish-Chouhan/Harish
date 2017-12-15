@@ -32,6 +32,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAPhil.UI", "LAPhil.UI\LAPhil.UI.csproj", "{D96E1624-6897-4028-9138-35716A723D72}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login.Forms", "Login.Forms\Login.Forms.csproj", "{4413460F-145B-49DA-A01A-92787E3380FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAPhil.Settings", "LAPhil.Settings\LAPhil.Settings.csproj", "{A2EE0917-F18F-4AA2-88C8-8581E242A31A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -367,5 +368,17 @@ Global
 		{4413460F-145B-49DA-A01A-92787E3380FC}.Release|x86.Build.0 = Release|Any CPU
 		{4413460F-145B-49DA-A01A-92787E3380FC}.Release|x64.ActiveCfg = Release|Any CPU
 		{4413460F-145B-49DA-A01A-92787E3380FC}.Release|x64.Build.0 = Release|Any CPU
+		{A2EE0917-F18F-4AA2-88C8-8581E242A31A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2EE0917-F18F-4AA2-88C8-8581E242A31A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2EE0917-F18F-4AA2-88C8-8581E242A31A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2EE0917-F18F-4AA2-88C8-8581E242A31A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2EE0917-F18F-4AA2-88C8-8581E242A31A}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{A2EE0917-F18F-4AA2-88C8-8581E242A31A}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{A2EE0917-F18F-4AA2-88C8-8581E242A31A}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{A2EE0917-F18F-4AA2-88C8-8581E242A31A}.Release|iPhone.Build.0 = Release|Any CPU
+		{A2EE0917-F18F-4AA2-88C8-8581E242A31A}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{A2EE0917-F18F-4AA2-88C8-8581E242A31A}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{A2EE0917-F18F-4AA2-88C8-8581E242A31A}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{A2EE0917-F18F-4AA2-88C8-8581E242A31A}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal
