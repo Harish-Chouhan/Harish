@@ -31,7 +31,7 @@ namespace LAPhil.iOS
 
             // Hide the navigation bar on the this view controller
             base.SetNavigationBarHidden(true, true);
-
+            /* harish
             if (_history == null)
             {
                 // #2 Use it
@@ -42,6 +42,7 @@ namespace LAPhil.iOS
 
             // And push it onto the navigation stack
             base.PushViewController(_history, true);
+            */
         }
 
         public override void DidReceiveMemoryWarning()

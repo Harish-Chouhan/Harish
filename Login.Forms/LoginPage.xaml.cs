@@ -21,8 +21,8 @@ namespace Login.Forms
 		async void OnLoginButtonClicked (object sender, EventArgs e)
 		{
 			var user = new User {
-				Username = usernameEntry.Text,
-				Password = passwordEntry.Text
+				//Username = usernameEntry.Text,
+				//Password = passwordEntry.Text
 			};
 
 			var isValid = AreCredentialsCorrect (user);
@@ -31,8 +31,8 @@ namespace Login.Forms
                 Navigation.InsertPageBefore (new NavigationPage(new MainPage ()), this);
 				await Navigation.PopAsync ();
 			} else {
-				messageLabel.Text = "Login failed";
-				passwordEntry.Text = string.Empty;
+				//messageLabel.Text = "Login failed";
+				//passwordEntry.Text = string.Empty;
 			}
 		}
 
@@ -40,5 +40,7 @@ namespace Login.Forms
 		{
 			return user.Username == Constants.Username && user.Password == Constants.Password;
 		}
+
+
 	}
 }
